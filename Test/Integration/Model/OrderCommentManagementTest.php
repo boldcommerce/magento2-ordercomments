@@ -7,7 +7,7 @@ use Magento\TestFramework\Helper\Bootstrap;
 /**
  * Class OrderCommentManagementTest
  * @package Bold\OrderComment\Test\Integration\Model
- * 
+ *
  * @magentoDbIsolation enabled
  */
 class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase

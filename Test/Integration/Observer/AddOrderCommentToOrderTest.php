@@ -7,7 +7,7 @@ use Magento\TestFramework\Helper\Bootstrap;
 /**
  * Class AddOrderCommentToOrderTest
  * @package Bold\OrderComment\Test\Integration\Observer
- * 
+ *
  * tests if the comment gets passed from the quote to the order during order creation.
  * @magentoDbIsolation enabled
  */

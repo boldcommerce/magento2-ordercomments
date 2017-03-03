@@ -24,9 +24,9 @@ define(
                 var quoteId = quote.getQuoteId();
                 var url;
 
-                if(isCustomer){
+                if (isCustomer) {
                     url = urlBuilder.createUrl('/carts/mine/set-order-comment', {})
-                }else{
+                } else {
                     url = urlBuilder.createUrl('/guest-carts/:cartId/set-order-comment', {cartId: quoteId});
                 }
 
@@ -37,7 +37,7 @@ define(
                     }
                 };
 
-                if(!payload.orderComment.comment){
+                if (!payload.orderComment.comment) {
                     return true;
                 }
 
@@ -51,11 +51,11 @@ define(
                     type: 'PUT',
                     async: false
                 }).done(
-                    function(response){
+                    function (response) {
                         result = true;
                     }
                 ).fail(
-                    function(response){
+                    function (response) {
                         result = false;
                         errorProcessor.process(response);
                     }

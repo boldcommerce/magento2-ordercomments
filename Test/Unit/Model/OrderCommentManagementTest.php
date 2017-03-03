@@ -109,7 +109,6 @@ class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
         $this->testObject->saveOrderComment($cartId, $orderCommentMock);
 
         $this->assertEquals($comment, $this->quoteMock->getData(OrderComment::COMMENT_FIELD_NAME));
-
     }
 
     public function testSaveCommentWithTags()
@@ -137,6 +136,5 @@ class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
         $this->testObject->saveOrderComment($cartId, $orderCommentMock);
 
         $this->assertEquals(strip_tags($comment), $this->quoteMock->getData(OrderComment::COMMENT_FIELD_NAME));
-
     }
 }
