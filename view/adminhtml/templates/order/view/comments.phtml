@@ -1,0 +1,10 @@
+<?php if($comment = $block->getOrderComment()):?>
+    <section class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?php /* @escapeNotVerified */ echo __('Order Comment') ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <?php echo nl2br($block->escapeHtml($comment));?>
+        </div>
+    </section>
+<?php endif; ?>
