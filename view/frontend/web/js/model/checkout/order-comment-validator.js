@@ -5,9 +5,11 @@ define(
         'Magento_Checkout/js/model/quote',
         'Magento_Checkout/js/model/url-builder',
         'mage/url',
-        'Magento_Checkout/js/model/error-processor'
+        'Magento_Checkout/js/model/error-processor',
+        'Magento_Ui/js/model/messageList',
+        'mage/translate'
     ],
-    function ($, customer, quote, urlBuilder, urlFormatter, errorProcessor) {
+    function ($, customer, quote, urlBuilder, urlFormatter, errorProcessor, messageContainer, __) {
         'use strict';
 
         return {
@@ -21,9 +23,15 @@ define(
                 var isCustomer = customer.isLoggedIn();
                 var form = $('.payment-method input[name="payment[method]"]:checked').parents('.payment-method').find('form.order-comment-form');
 
-                var quoteId = quote.getQuoteId();
-                var url;
+                var comment = form.find('.input-text.order-comment').val();
+                if (comment.length > this.getMaxLength()) {
+                    messageContainer.addErrorMessage({ message: __("Comment is too long") });
+                    return false;
+                }
 
+                var quoteId = quote.getQuoteId();
+
+                var url;
                 if (isCustomer) {
                     url = urlBuilder.createUrl('/carts/mine/set-order-comment', {})
                 } else {
@@ -33,7 +41,7 @@ define(
                 var payload = {
                     cartId: quoteId,
                     orderComment: {
-                        comment: form.find('.input-text.order-comment').val()
+                        comment: comment
                     }
                 };
 
@@ -62,6 +70,9 @@ define(
                 );
 
                 return result;
+            },
+            getMaxLength: function () {
+                return window.checkoutConfig.max_length;
             }
         };
     }
