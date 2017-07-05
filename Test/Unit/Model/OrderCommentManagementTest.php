@@ -2,7 +2,9 @@
 namespace Bold\OrderComment\Test\Unit\Model;
 
 use Bold\OrderComment\Model\Data\OrderComment;
+use Bold\OrderComment\Model\OrderCommentConfigProvider;
 use Bold\OrderComment\Model\OrderCommentManagement;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,6 +23,11 @@ class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
      */
     protected $testObject;
 
+    /**
+     * @var ScopeConfigInterface|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $configMock;
+
     public function setUp()
     {
         $this->quoteRepositoryMock = $this->getMock('\Magento\Quote\Api\CartRepositoryInterface');
@@ -36,8 +43,11 @@ class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
             '',
             false
         );
+        $this->configMock = $this->getMockForAbstractClass(
+            ScopeConfigInterface::class
+        );
 
-        $this->testObject = new OrderCommentManagement($this->quoteRepositoryMock);
+        $this->testObject = new OrderCommentManagement($this->quoteRepositoryMock, $this->configMock);
     }
 
     /**
@@ -84,6 +94,37 @@ class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
         $this->testObject->saveOrderComment($cartId, $orderCommentMock);
     }
     
+    /**
+     * @expectedException \Magento\Framework\Exception\ValidatorException
+     * @expectedExceptionMessage Comment is too long
+     */
+    public function testSaveCommentThatIsTooLong()
+    {
+        $cartId = 123;
+        $comment = '123456789';
+        $this->configMock
+            ->method('getValue')
+            ->with(OrderCommentConfigProvider::CONFIG_MAX_LENGTH)
+            ->willReturn(8);
+
+        $this->quoteRepositoryMock->expects($this->once())
+            ->method('getActive')->with($cartId)->will($this->returnValue($this->quoteMock));
+        $this->quoteMock->expects($this->once())->method('getItemsCount')->will($this->returnValue(12));
+
+        $this->quoteRepositoryMock->expects($this->never())
+            ->method('save');
+
+        $orderCommentMock = $this->getMockBuilder('\Bold\OrderComment\Model\Data\OrderComment')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $orderCommentMock->expects($this->once())
+            ->method('getComment')
+            ->willReturn($comment);
+
+        $this->testObject->saveOrderComment($cartId, $orderCommentMock);
+    }
+
     public function testSaveComment()
     {
         $cartId = 123;
