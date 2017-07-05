@@ -19,6 +19,9 @@ define(
                     return self.getMaxLength() - self.comment().length;
                 });
             },
+            hasMaxLength: function() {
+                return window.checkoutConfig.max_length > 0;
+            },
             getMaxLength: function () {
                 return window.checkoutConfig.max_length;
             }

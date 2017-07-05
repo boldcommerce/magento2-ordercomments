@@ -24,7 +24,7 @@ define(
                 var form = $('.payment-method input[name="payment[method]"]:checked').parents('.payment-method').find('form.order-comment-form');
 
                 var comment = form.find('.input-text.order-comment').val();
-                if (comment.length > this.getMaxLength()) {
+                if (this.hasMaxLength() && comment.length > this.getMaxLength()) {
                     messageContainer.addErrorMessage({ message: __("Comment is too long") });
                     return false;
                 }
@@ -70,6 +70,9 @@ define(
                 );
 
                 return result;
+            },
+            hasMaxLength: function() {
+                return window.checkoutConfig.max_length > 0;
             },
             getMaxLength: function () {
                 return window.checkoutConfig.max_length;
