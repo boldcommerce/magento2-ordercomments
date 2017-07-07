@@ -2,8 +2,10 @@
 namespace Bold\OrderComment\Model;
 
 use Bold\OrderComment\Model\Data\OrderComment;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\CouldNotSaveException;
+use Magento\Framework\Exception\ValidatorException;
 
 class OrderCommentManagement implements \Bold\OrderComment\Api\OrderCommentManagementInterface
 {
@@ -15,13 +17,20 @@ class OrderCommentManagement implements \Bold\OrderComment\Api\OrderCommentManag
     protected $quoteRepository;
 
     /**
+     * @var ScopeConfigInterface
+     */
+    protected $scopeConfig;
+
+    /**
      *
      * @param \Magento\Quote\Api\CartRepositoryInterface $quoteRepository Quote repository.
      */
     public function __construct(
-        \Magento\Quote\Api\CartRepositoryInterface $quoteRepository
+        \Magento\Quote\Api\CartRepositoryInterface $quoteRepository,
+        ScopeConfigInterface $scopeConfig
     ) {
         $this->quoteRepository = $quoteRepository;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -41,6 +50,8 @@ class OrderCommentManagement implements \Bold\OrderComment\Api\OrderCommentManag
         }
         $comment = $orderComment->getComment();
 
+        $this->validateComment($comment);
+
         try {
             $quote->setData(OrderComment::COMMENT_FIELD_NAME, strip_tags($comment));
             $this->quoteRepository->save($quote);
@@ -49,5 +60,17 @@ class OrderCommentManagement implements \Bold\OrderComment\Api\OrderCommentManag
         }
 
         return $comment;
+    }
+
+    /**
+     * @param string $comment
+     * @throws ValidatorException
+     */
+    protected function validateComment($comment)
+    {
+        $maxLength = $this->scopeConfig->getValue(OrderCommentConfigProvider::CONFIG_MAX_LENGTH);
+        if ($maxLength && (mb_strlen($comment) > $maxLength)) {
+            throw new ValidatorException(__('Comment is too long'));
+        }
     }
 }
