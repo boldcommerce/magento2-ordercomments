@@ -17,17 +17,21 @@ Store owners can then see these comments in the backend on the order grid and on
 
 ## Installation
 ```
-composer require "boldcommerce/magento2-ordercomments":"~1.1.0"
+composer require "boldcommerce/magento2-ordercomments":"~1.1.1"
 php bin/magento module:enable Bold_OrderComment
 php bin/magento setup:upgrade
 ```
 
 ## Changelog
-1.1.0 - features by https://github.com/schmengler
+1.1.1
 =============
-* German translations
-* Optional configuration for maximum comment length
-* Show order comments in customer account
+* Swedish translations and fixes in German translations #5
+
+1.1.0
+=============
+* German translations #2
+* Optional configuration for maximum comment length #3
+* Show order comments in customer account #4
 
 1.0.0
 =============
