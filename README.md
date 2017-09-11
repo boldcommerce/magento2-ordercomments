@@ -25,13 +25,13 @@ php bin/magento setup:upgrade
 ## Changelog
 1.1.1
 =============
-* Swedish translations and fixes in German translations #5
+* Swedish translations and fixes in German translations [#5](https://github.com/boldcommerce/magento2-ordercomments/pull/5)
 
 1.1.0
 =============
-* German translations #2
-* Optional configuration for maximum comment length #3
-* Show order comments in customer account #4
+* German translations [#2](https://github.com/boldcommerce/magento2-ordercomments/pull/2)
+* Optional configuration for maximum comment length [#3](https://github.com/boldcommerce/magento2-ordercomments/pull/3)
+* Show order comments in customer account [#4](https://github.com/boldcommerce/magento2-ordercomments/pull/4)
 
 1.0.0
 =============
