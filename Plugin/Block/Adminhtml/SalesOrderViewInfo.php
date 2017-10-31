@@ -16,7 +16,7 @@ class SalesOrderViewInfo
         $result
     ) {
         $commentBlock = $subject->getLayout()->getBlock('order_comments');
-        if ($commentBlock !== false) {
+        if ($commentBlock !== false && $subject->getNameInLayout() == 'order_info') {
             $commentBlock->setOrderComment($subject->getOrder()->getData(OrderComment::COMMENT_FIELD_NAME));
             $result = $result . $commentBlock->toHtml();
         }
