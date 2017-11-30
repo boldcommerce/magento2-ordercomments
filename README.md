@@ -17,12 +17,16 @@ Store owners can then see these comments in the backend on the order grid and on
 
 ## Installation
 ```
-composer require "boldcommerce/magento2-ordercomments":"~1.1.4"
+composer require "boldcommerce/magento2-ordercomments":"~1.2.0"
 php bin/magento module:enable Bold_OrderComment
 php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.2.0
+=============
+* added setting to change initial collapse state of comment field (closed/opened/no collapse) [#14](https://github.com/boldcommerce/magento2-ordercomments/issue/14)
+
 1.1.4
 =============
 * updated composer.json to allow PHP 7.1
