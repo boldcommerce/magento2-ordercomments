@@ -1,0 +1,13 @@
+<form class="form form-discount order-comment-form">
+    <div class="payment-option-inner">
+        <div class="field" data-bind="css: { _error : remainingCharacters() < 0 && hasMaxLength()}">
+            <label class="label">
+                <span data-bind="i18n: 'Enter comment'"></span>
+            </label>
+            <div class="control">
+                <textarea class="input-text order-comment" name="comment-code" rows="4" data-bind="value: comment,valueUpdate: 'afterkeydown',attr:{placeholder: $t('Enter your comment...')} " ></textarea>
+                <p data-bind="if: hasMaxLength()">Remaining characters: <span class="order-comment-form__characters" data-bind="text: remainingCharacters"></span></p>
+            </div>
+        </div>
+    </div>
+</form>

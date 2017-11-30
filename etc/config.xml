@@ -4,6 +4,7 @@
         <sales>
             <ordercomments>
                 <show_in_account>1</show_in_account>
+                <collapse_state>0</collapse_state>
             </ordercomments>
         </sales>
     </default>

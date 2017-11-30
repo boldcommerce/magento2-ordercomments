@@ -24,6 +24,12 @@ define(
             },
             getMaxLength: function () {
                 return window.checkoutConfig.max_length;
+            },
+            getInitialCollapseState: function() {
+                return window.checkoutConfig.comment_initial_collapse_state;
+            },
+            isInitialStateOpened: function() {
+                return this.getInitialCollapseState() === 1
             }
         });
     }
