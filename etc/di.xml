@@ -11,4 +11,8 @@
             </argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="bold_load_ordercomment" type="Bold\OrderComment\Plugin\Model\Order\LoadOrderComment"/>
+    </type>
 </config>
