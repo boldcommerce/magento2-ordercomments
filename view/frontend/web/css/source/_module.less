@@ -1,6 +1,12 @@
 ._error {
-  .order-comment-form__characters {
-    color: @checkout-field-validation__border-color;
+  .order-comment-input {
+    outline: none;
+    border: 2px solid @checkout-field-validation__border-color;
+    &:focus {
+      outline: none;
+      border: 2px solid @checkout-field-validation__border-color;
+      box-shadow: 0 0 3px @checkout-field-validation__border-color;
+    }
   }
 }
 
