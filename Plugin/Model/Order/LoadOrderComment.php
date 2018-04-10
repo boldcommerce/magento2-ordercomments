@@ -27,6 +27,16 @@ class LoadOrderComment
         return $resultOrder;
     }
 
+    public function afterGetList(
+        OrderRepositoryInterface $subject,
+        \Magento\Sales\Api\Data\OrderSearchResultInterface $orderSearchResult
+    ) {
+        foreach ($orderSearchResult->getItems() as $order) {
+            $this->setOrderComment($order);
+        }
+        return $orderSearchResult;
+    }
+
     public function setOrderComment(OrderInterface $order)
     {
         if ($order instanceof \Magento\Sales\Model\Order) {
