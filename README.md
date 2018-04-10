@@ -17,12 +17,21 @@ Store owners can then see these comments in the backend on the order grid and on
 
 ## Installation
 ```
-composer require "boldcommerce/magento2-ordercomments":"~1.2.0"
+composer require "boldcommerce/magento2-ordercomments":"~1.4.0"
 php bin/magento module:enable Bold_OrderComment
 php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.4.0
+=============
+* Third party contribution: Made the comment available in the order list web api `V1/orders` [#18](https://github.com/boldcommerce/magento2-ordercomments/pull/18)
+
+1.3.0
+=============
+* UX changes to the max comment length feature [#15](https://github.com/boldcommerce/magento2-ordercomments/issue/15)
+* Made the comment available in the order detail web api `V1/orders/{id}` [#15](https://github.com/boldcommerce/magento2-ordercomments/issue/15)
+
 1.2.0
 =============
 * added setting to change initial collapse state of comment field (closed/opened/no collapse) [#14](https://github.com/boldcommerce/magento2-ordercomments/issue/14)
@@ -33,8 +42,8 @@ php bin/magento setup:upgrade
 
 1.1.3
 =============
-* Dutch translations [#10](https://github.com/boldcommerce/magento2-ordercomments/pull/10)
-* Italian translations [#11](https://github.com/boldcommerce/magento2-ordercomments/pull/11)
+* Third party contribution: Dutch translations [#10](https://github.com/boldcommerce/magento2-ordercomments/pull/10)
+* Third party contribution: Italian translations [#11](https://github.com/boldcommerce/magento2-ordercomments/pull/11)
 
 1.1.2
 =============
@@ -42,13 +51,13 @@ php bin/magento setup:upgrade
 
 1.1.1
 =============
-* Swedish translations and fixes in German translations [#5](https://github.com/boldcommerce/magento2-ordercomments/pull/5)
+* Third party contribution: Swedish translations and fixes in German translations [#5](https://github.com/boldcommerce/magento2-ordercomments/pull/5)
 
 1.1.0
 =============
-* German translations [#2](https://github.com/boldcommerce/magento2-ordercomments/pull/2)
-* Optional configuration for maximum comment length [#3](https://github.com/boldcommerce/magento2-ordercomments/pull/3)
-* Show order comments in customer account [#4](https://github.com/boldcommerce/magento2-ordercomments/pull/4)
+* Third party contribution: German translations [#2](https://github.com/boldcommerce/magento2-ordercomments/pull/2)
+* Third party contribution: Optional configuration for maximum comment length [#3](https://github.com/boldcommerce/magento2-ordercomments/pull/3)
+* Third party contribution: Show order comments in customer account [#4](https://github.com/boldcommerce/magento2-ordercomments/pull/4)
 
 1.0.0
 =============
