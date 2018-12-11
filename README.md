@@ -17,12 +17,16 @@ Store owners can then see these comments in the backend on the order grid and on
 
 ## Installation
 ```
-composer require "boldcommerce/magento2-ordercomments":"~1.6.0"
+composer require "boldcommerce/magento2-ordercomments":"~1.6.1"
 php bin/magento module:enable Bold_OrderComment
 php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.6.1
+=============
+* Third party contribution: Enabled PHP 7.2 support [#29](https://github.com/boldcommerce/magento2-ordercomments/pull/29)
+
 1.6.0
 =============
 * Third party contribution: Hebrew translations [#28](https://github.com/boldcommerce/magento2-ordercomments/pull/28)
