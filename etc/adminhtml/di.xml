@@ -3,4 +3,7 @@
     <type name="Magento\Sales\Block\Adminhtml\Order\View\Info">
         <plugin name="bold_ordercomment-show_comment" type="Bold\OrderComment\Plugin\Block\Adminhtml\SalesOrderViewInfo" sortOrder="99999" />
     </type>
+
+    <preference for="Magento\Sales\Model\Order\Pdf\Invoice" type="Bold\OrderComment\Model\Pdf\Invoice" />
+    <preference for="Magento\Sales\Model\Order\Pdf\Shipment" type="Bold\OrderComment\Model\Pdf\Shipment" />
 </config>
