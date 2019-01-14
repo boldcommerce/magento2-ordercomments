@@ -15,7 +15,7 @@ class SalesOrderViewInfo
         \Magento\Sales\Block\Adminhtml\Order\View\Info $subject,
         $result
     ) {
-        $commentBlock = $subject->getLayout()->getBlock('order_comments');
+        $commentBlock = $subject->getLayout()->getBlock('boldcommerce_order_comments');
         if ($commentBlock !== false && $subject->getNameInLayout() == 'order_info') {
             $commentBlock->setOrderComment($subject->getOrder()->getData(OrderComment::COMMENT_FIELD_NAME));
             $result = $result . $commentBlock->toHtml();
