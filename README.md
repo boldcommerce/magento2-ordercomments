@@ -17,12 +17,17 @@ Store owners can then see these comments in the backend on the order grid and on
 
 ## Installation
 ```
-composer require "boldcommerce/magento2-ordercomments":"~1.6.1"
+composer require "boldcommerce/magento2-ordercomments":"~1.6.2"
 php bin/magento module:enable Bold_OrderComment
 php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.6.2
+=============
+* Third party contribution: fix duplicate comment field on admin sales invoice view [#31](https://github.com/boldcommerce/magento2-ordercomments/pull/31)
+* Third party contribution: fix typo and added some code improvements to the install script [#30](https://github.com/boldcommerce/magento2-ordercomments/pull/30)
+
 1.6.1
 =============
 * Third party contribution: Enabled PHP 7.2 support [#29](https://github.com/boldcommerce/magento2-ordercomments/pull/29)
