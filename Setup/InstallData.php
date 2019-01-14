@@ -2,6 +2,7 @@
 
 namespace Bold\OrderComment\Setup;
 
+use Bold\OrderComment\Model\Data\OrderComment;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -50,13 +51,13 @@ class InstallData implements InstallDataInterface
         
         $quoteInstaller->addAttribute(
             'quote',
-            'bold_order_comment',
+            OrderComment::COMMENT_FIELD_NAME,
             ['type' => Table::TYPE_TEXT, 'length' => '64k', 'nullable' => true]
         );
 
         $salesInstaller->addAttribute(
             'order',
-            'bold_order_comment',
+            OrderComment::COMMENT_FIELD_NAME,
             ['type' => Table::TYPE_TEXT, 'length' => '64k', 'nullable' => true, 'grid' => true]
         );
 

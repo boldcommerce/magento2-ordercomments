@@ -6,7 +6,7 @@
                 <label>Order Comment</label>
                 <field id="max_length" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
                     <label>Maximum length in characters</label>
-                    <comment>Leave emtpy for no limit</comment>
+                    <comment>Leave empty for no limit</comment>
                 </field>
                 <field id="show_in_account" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
                     <label>Show comments in customer account</label>
