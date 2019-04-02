@@ -21,7 +21,7 @@ define(
              */
             validate: function () {
                 var isCustomer = customer.isLoggedIn();
-                var form = $('.payment-method input[name="payment[method]"]:checked').parents('.payment-method').find('form.order-comment-form');
+                var form = this.getForm();
 
                 // Compatibility for Rubic_CleanCheckout
                 if (!form.length) {
@@ -76,7 +76,12 @@ define(
 
                 return result;
             },
-            hasMaxLength: function() {
+            getForm: function () {
+                return $('.payment-method input[name="payment[method]"]:checked')
+                    .parents('.payment-method')
+                    .find('form.order-comment-form');
+            },
+            hasMaxLength: function () {
                 return window.checkoutConfig.max_length > 0;
             },
             getMaxLength: function () {
