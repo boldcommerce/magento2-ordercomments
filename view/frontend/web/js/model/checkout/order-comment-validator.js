@@ -21,12 +21,7 @@ define(
              */
             validate: function () {
                 var isCustomer = customer.isLoggedIn();
-                var form = $('.payment-method input[name="payment[method]"]:checked').parents('.payment-method').find('form.order-comment-form');
-
-                // Compatibility for Rubic_CleanCheckout
-                if (!form.length) {
-                    form = $('form.order-comment-form');
-                }
+                var form = this.getForm();
 
                 var comment = form.find('.input-text.order-comment').val();
                 if (this.hasMaxLength() && comment.length > this.getMaxLength()) {
@@ -76,7 +71,19 @@ define(
 
                 return result;
             },
-            hasMaxLength: function() {
+            getForm: function () {
+                var form =  $('.payment-method input[name="payment[method]"]:checked')
+                    .parents('.payment-method')
+                    .find('form.order-comment-form');
+
+                // Compatibility for Rubic_CleanCheckout
+                if (!form.length) {
+                    form = $('form.order-comment-form');
+                }
+                
+                return form;
+            },
+            hasMaxLength: function () {
                 return window.checkoutConfig.max_length > 0;
             },
             getMaxLength: function () {
