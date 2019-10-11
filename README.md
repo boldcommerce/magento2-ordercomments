@@ -23,6 +23,13 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.6.4
+=============
+* Third party contribution: php 7.3 support in composer [#45](https://github.com/boldcommerce/magento2-ordercomments/pull/45)
+* Third party contribution: French translations [#43](https://github.com/boldcommerce/magento2-ordercomments/pull/43)
+* Third party contribution: Polish translations [#40](https://github.com/boldcommerce/magento2-ordercomments/pull/40)
+* Third party contribution: Czech translations [#39](https://github.com/boldcommerce/magento2-ordercomments/pull/39)
+
 1.6.3
 =============
 * Third party contribution: move form selector in order-comment-validator.js to a separate method to improve extensibility through mixins [#36](https://github.com/boldcommerce/magento2-ordercomments/pull/36)
