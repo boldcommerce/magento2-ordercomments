@@ -21,7 +21,7 @@ Add the "order comment" to new order emails by referencing [the code here](https
 
 ## Configuration
 
-There are several [configuration options](https://github.com/boldcommerce/magento2-ordercomments/blob/master/etc/adminhtml/system.xml) for this extension, which can be found at **STORES > Configuration > SALES > Sales > Order Comments**
+There are several [configuration options](https://github.com/boldcommerce/magento2-ordercomments/blob/master/etc/adminhtml/system.xml) for this extension, which can be found at **STORES > Configuration > SALES > Sales > Order Comments**.
 
 ## Installation
 ```
