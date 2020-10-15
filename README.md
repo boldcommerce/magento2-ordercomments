@@ -15,6 +15,14 @@ Store owners can then see these comments in the backend on the order grid and on
 ### Admin panel
 ![admin panel](docs/admin_panel.png)
 
+## Emails
+
+Add the "order comment" to new order emails by referencing [the code here](https://github.com/boldcommerce/magento2-ordercomments/issues/6#issuecomment-328515806).
+
+## Configuration
+
+There are several [configuration options](https://github.com/boldcommerce/magento2-ordercomments/blob/master/etc/adminhtml/system.xml) for this extension, which can be found at **STORES > Configuration > SALES > Sales > Order Comments**.
+
 ## Installation
 ```
 composer require boldcommerce/magento2-ordercomments
