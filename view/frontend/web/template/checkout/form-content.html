@@ -6,7 +6,7 @@
             </label>
             <div class="control">
                 <textarea class="input-text order-comment order-comment-input" name="comment-code" rows="4" data-bind="value: comment,valueUpdate: 'afterkeydown',attr:{placeholder: $t('Enter your comment...')} " ></textarea>
-                <p data-bind="if: hasMaxLength()">Remaining characters: <span class="order-comment-form__characters" data-bind="text: remainingCharacters"></span></p>
+                <p data-bind="if: hasMaxLength()"><span data-bind="i18n: 'Remaining characters:'"></span> <span class="order-comment-form__characters" data-bind="text: remainingCharacters"></span></p>
             </div>
         </div>
     </div>
