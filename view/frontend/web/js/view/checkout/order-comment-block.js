@@ -51,6 +51,9 @@ define(
                 });
 
             },
+            showInCheckout: function() {
+                return window.checkoutConfig.show_in_checkout;
+            },
             hasMaxLength: function() {
                 return window.checkoutConfig.max_length > 0;
             },
