@@ -31,6 +31,14 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.6.5
+=============
+* Third party contribution: PHP 7.4 support added in composer [#55](https://github.com/boldcommerce/magento2-ordercomments/pull/55)
+* Third party contribution: Japanese translations added [#52](https://github.com/boldcommerce/magento2-ordercomments/pull/52)
+* Third party contribution: Fix typo in Italian translation [#51](https://github.com/boldcommerce/magento2-ordercomments/pull/51)
+* Third party contribution: Hungarian Translations added [#50](https://github.com/boldcommerce/magento2-ordercomments/pull/50)
+* Third party contribution: New sections added in readme [#48](https://github.com/boldcommerce/magento2-ordercomments/pull/48)
+
 1.6.4
 =============
 * Third party contribution: php 7.3 support in composer [#45](https://github.com/boldcommerce/magento2-ordercomments/pull/45)
