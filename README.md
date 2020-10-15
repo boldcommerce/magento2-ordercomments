@@ -31,6 +31,10 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.7.0
+=============
+* Added website scope configuration setting to toggle visibility of comment field. [#59](https://github.com/boldcommerce/magento2-ordercomments/pull/59)
+
 1.6.5
 =============
 * Third party contribution: PHP 7.4 support added in composer [#55](https://github.com/boldcommerce/magento2-ordercomments/pull/55)
