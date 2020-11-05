@@ -3,6 +3,7 @@ namespace Bold\OrderComment\Test\Integration\Model;
 
 use Bold\OrderComment\Model\Data\OrderComment;
 use Magento\TestFramework\Helper\Bootstrap;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class GuestOrderCommentManagementTest
@@ -10,7 +11,7 @@ use Magento\TestFramework\Helper\Bootstrap;
  *
  * @magentoDbIsolation enabled
  */
-class GuestOrderCommentManagementTest extends \PHPUnit_Framework_TestCase
+class GuestOrderCommentManagementTest extends TestCase
 {
     /**
      * @magentoDataFixture Magento/Sales/_files/quote_with_bundle.php

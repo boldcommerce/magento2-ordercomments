@@ -9,8 +9,9 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Quote\Model\Quote;
 use Magento\Quote\Model\QuoteRepository;
+use PHPUnit\Framework\TestCase;
 
-class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
+class OrderCommentManagementTest extends TestCase
 {
     /**
      * @var \PHPUnit_Framework_MockObject_MockObject|QuoteRepository
@@ -34,18 +35,15 @@ class OrderCommentManagementTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->quoteRepositoryMock = $this->getMock(CartRepositoryInterface::class);
+        $this->quoteRepositoryMock = $this->createMock(CartRepositoryInterface::class);
 
-        $this->quoteMock = $this->getMock(
+        $this->quoteMock = $this->createPartialMock(
             Quote::class,
             [
                 'getItemsCount',
                 'save',
                 '__wakeup'
-            ],
-            [],
-            '',
-            false
+            ]
         );
         $this->configMock = $this->getMockForAbstractClass(
             ScopeConfigInterface::class

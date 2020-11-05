@@ -2,8 +2,9 @@
 namespace Bold\OrderComment\Test\Unit\Model;
 
 use Magento\Quote\Test\Unit\Model\GuestCart\GuestCartTestHelper;
+use PHPUnit\Framework\TestCase;
 
-class GuestOrderCommentManagementTest extends \PHPUnit_Framework_TestCase
+class GuestOrderCommentManagementTest extends TestCase
 {
     /**
      * @var \Bold\OrderComment\Model\GuestOrderCommentManagement
@@ -49,9 +50,9 @@ class GuestOrderCommentManagementTest extends \PHPUnit_Framework_TestCase
     {
         $objectManager = new \Magento\Framework\TestFramework\Unit\Helper\ObjectManager($this);
         
-        $this->quoteRepositoryMock = $this->getMock('\Magento\Quote\Api\CartRepositoryInterface');
+        $this->quoteRepositoryMock = $this->createMock('\Magento\Quote\Api\CartRepositoryInterface');
 
-        $this->quoteMock = $this->getMock(
+        $this->quoteMock = $this->createMock(
             '\Magento\Quote\Model\Quote',
             [
                 'getItemsCount',
@@ -63,7 +64,7 @@ class GuestOrderCommentManagementTest extends \PHPUnit_Framework_TestCase
             false
         );
         
-        $this->orderCommentManagementMock = $this->getMock(
+        $this->orderCommentManagementMock = $this->createMock(
             'Bold\OrderComment\Model\OrderCommentManagement',
             [],
             [],

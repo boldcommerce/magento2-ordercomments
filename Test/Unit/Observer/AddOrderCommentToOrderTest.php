@@ -4,8 +4,9 @@ namespace Bold\OrderComment\Test\Unit\Observer;
 use Bold\OrderComment\Observer\AddOrderCommentToOrder;
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use Bold\OrderComment\Model\Data\OrderComment;
+use PHPUnit\Framework\TestCase;
 
-class AddOrderCommentToOrderTest extends \PHPUnit_Framework_TestCase
+class AddOrderCommentToOrderTest extends TestCase
 {
     protected $objectManager;
 
@@ -25,21 +26,21 @@ class AddOrderCommentToOrderTest extends \PHPUnit_Framework_TestCase
     {
         $comment = 'test comment';
 
-        $observerMock = $this->getMock('Magento\Framework\Event\Observer', [], [], '', false);
-        $eventMock = $this->getMock('Magento\Framework\Event', ['getData'], [], '', false);
+        $observerMock = $this->createMock('Magento\Framework\Event\Observer');
+        $eventMock = $this->createPartialMock('Magento\Framework\Event', ['getData']);
 
-        $quoteMock = $this->getMock('Magento\Quote\Model\Quote', ['getData'], [], '', false);
-        $orderMock = $this->getMock('Magento\Sales\Model\Order', null, [], '', false);
+        $quoteMock = $this->createPartialMock('Magento\Quote\Model\Quote', ['getData']);
+        $orderMock = $this->createPartialMock('Magento\Sales\Model\Order', []);
 
         $map = [
             ['quote', null, $quoteMock],
             ['order', null, $orderMock]
         ];
         
-        $observerMock->expects($this->atLeastCount(2))
+        $observerMock->expects($this->atLeast(2))
             ->method('getEvent')
             ->willReturn($eventMock);
-        $eventMock->expects($this->atLeastCount(2))
+        $eventMock->expects($this->atLeast(2))
             ->method('getData')
             ->will($this->returnValueMap($map));
 
@@ -51,10 +52,5 @@ class AddOrderCommentToOrderTest extends \PHPUnit_Framework_TestCase
         $this->observer->execute($observerMock);
 
         $this->assertEquals($comment, $orderMock->getData(OrderComment::COMMENT_FIELD_NAME));
-    }
-
-    public function atLeastCount($num)
-    {
-        return new \PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastCount($num);
     }
 }

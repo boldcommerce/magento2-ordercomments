@@ -3,6 +3,7 @@ namespace Bold\OrderComment\Test\Integration\Observer;
 
 use Bold\OrderComment\Model\Data\OrderComment;
 use Magento\TestFramework\Helper\Bootstrap;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AddOrderCommentToOrderTest
@@ -11,7 +12,7 @@ use Magento\TestFramework\Helper\Bootstrap;
  * tests if the comment gets passed from the quote to the order during order creation.
  * @magentoDbIsolation enabled
  */
-class AddOrderCommentToOrderTest extends \PHPUnit_Framework_TestCase
+class AddOrderCommentToOrderTest extends TestCase
 {
     /**
      * Create order with product that has child items
