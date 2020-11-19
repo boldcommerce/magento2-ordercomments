@@ -7,4 +7,7 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="bold_ordercomments_modify_checkout_layout" type="Bold\OrderComment\Plugin\Block\Checkout\ModifyLayout" />
+    </type>
 </config>

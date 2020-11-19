@@ -21,6 +21,11 @@
                     <label>Initial collapse state on checkout page</label>
                     <source_model>Bold\OrderComment\Model\Config\Source\Collapse</source_model>
                 </field>
+                <field id="move_comment_after_payment_methods" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Move comment field after payment methods</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>By default comment is displayed inside payment method</comment>
+                </field>
             </group>
         </section>
     </system>
