@@ -14,7 +14,7 @@ class Collapse implements \Magento\Framework\Option\ArrayInterface
         $options = $this->toArray();
         $result = [];
 
-        foreach($options as $value => $label){
+        foreach ($options as $value => $label) {
             $result[] = [
                 'value' => $value, 'label' => $label
             ];

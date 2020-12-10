@@ -37,6 +37,10 @@ define(
             return result;
         };
 
+        function getExistingComment() {
+            return window.checkoutConfig.existing_comment;
+        }
+
         return Component.extend({
             defaults: {
                 template: 'Bold_OrderComment/checkout/order-comment-block'
@@ -44,12 +48,11 @@ define(
             initialize: function() {
                 this._super();
                 var self = this;
-                this.comment = ko.observable("").extend({maxOrderCommentLength: this.getMaxLength()});
+                this.comment = ko.observable(getExistingComment()).extend({maxOrderCommentLength: this.getMaxLength()});
 
                 this.remainingCharacters = ko.computed(function(){
                     return self.getMaxLength() - self.comment().length;
                 });
-
             },
             showInCheckout: function() {
                 return window.checkoutConfig.show_in_checkout;

@@ -4,6 +4,8 @@
 This extension allows customers to place a comment during the checkout.
 The comment field is displayed in the billing step right above the place order button.
 
+Additionally, there is also the option of showing the comment field on the cart page.
+
 Store owners can then see these comments in the backend on the order grid and on the order view page.
 
 ### Checkout view
