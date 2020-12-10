@@ -10,10 +10,19 @@ use Magento\Store\Model\ScopeInterface;
 
 class OrderCommentConfigProvider implements ConfigProviderInterface
 {
+    /**
+     * @deprecated
+     */
     const CONFIG_MAX_LENGTH = 'sales/ordercomments/max_length';
 
+    /**
+     * @deprecated
+     */
     const CONFIG_FIELD_COLLAPSE_STATE = 'sales/ordercomments/collapse_state';
 
+    /**
+     * @deprecated
+     */
     const CONFIG_SHOW_IN_CHECKOUT = 'sales/ordercomments/show_in_checkout';
 
     /**

@@ -71,13 +71,13 @@ class UpdateComment extends \Magento\Checkout\Controller\Cart implements HttpPos
      */
     public function execute()
     {
-        $comment = trim($this->getRequest()->getParam('order_comment'));
-        $cartQuote = $this->cart->getQuote();
-
-        $commentObj = $this->orderCommentFactory->create();
-        $commentObj->setComment($comment);
-
         try {
+            $comment = trim($this->getRequest()->getParam('order_comment', ''));
+            $cartQuote = $this->cart->getQuote();
+
+            $commentObj = $this->orderCommentFactory->create();
+            $commentObj->setComment($comment);
+
             $this->orderCommentManagement->saveOrderComment($cartQuote->getId(), $commentObj);
             $this->messageManager->addSuccessMessage(
                 __(
@@ -88,7 +88,7 @@ class UpdateComment extends \Magento\Checkout\Controller\Cart implements HttpPos
             $this->messageManager->addErrorMessage($e->getMessage());
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(__('There was an error when updating the quote.'));
-            $this->logger->critical($e);
+            $this->logger->critical($e->getMessage(), ['exception' => $e->getTraceAsString()]);
         }
 
         return $this->_goBack();
