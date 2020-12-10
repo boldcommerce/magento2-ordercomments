@@ -33,6 +33,14 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.8.0
+=============
+* new feature: ability to show the comment field on the cart page based on a admin configuration setting.
+
+1.7.1
+=============
+* upgrade tests to phpunit 6
+
 1.7.0
 =============
 * Added website scope configuration setting to toggle visibility of comment field. [#59](https://github.com/boldcommerce/magento2-ordercomments/pull/59)
