@@ -33,6 +33,11 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
+##
+1.8.1
+=============
+* fix bug introduced with 1.8.0 in checkout `Cannot read property 'length' of null`
+
 1.8.0
 =============
 * new feature: ability to show the comment field on the cart page based on a admin configuration setting.

@@ -52,11 +52,16 @@ class OrderCommentConfigProvider implements ConfigProviderInterface
      */
     public function getConfig()
     {
+        $comment = '';
+        if ($this->checkoutSession->getQuoteId()) {
+            $comment = $this->checkoutSession->getQuote()->getData(OrderComment::COMMENT_FIELD_NAME) ?: '';
+        }
+
         return [
             'show_in_checkout' => $this->scopeConfig->isSetFlag(self::CONFIG_SHOW_IN_CHECKOUT, ScopeInterface::SCOPE_WEBSITE),
             'max_length' => (int) $this->scopeConfig->getValue(self::CONFIG_MAX_LENGTH, ScopeInterface::SCOPE_WEBSITE),
             'comment_initial_collapse_state' => (int) $this->scopeConfig->getValue(self::CONFIG_FIELD_COLLAPSE_STATE, ScopeInterface::SCOPE_WEBSITE),
-            'existing_comment' => ($this->checkoutSession->getQuoteId() ? $this->checkoutSession->getQuote()->getData(OrderComment::COMMENT_FIELD_NAME): '')
+            'existing_comment' => $comment
         ];
     }
 }
