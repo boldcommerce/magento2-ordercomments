@@ -33,7 +33,10 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
-##
+1.8.2
+=============
+* Third party contribution: Bengali translations [#65](https://github.com/boldcommerce/magento2-ordercomments/pull/65)
+
 1.8.1
 =============
 * fix bug introduced with 1.8.0 in checkout `Cannot read property 'length' of null`
