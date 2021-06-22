@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * checkout_cart_index.xml
+ *
+ * @copyright Copyright © 2020 Bold Commerce BV. All rights reserved.
+ * @author    dev@boldcommerce.nl
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.container">
+            <block name="sales.order.comment" after="cart.discount" template="Bold_OrderComment::cart/comment.phtml" ifconfig="sales/ordercomments/show_in_cart">
+                <arguments>
+                    <argument name="comment_view_model" xsi:type="object">Bold\OrderComment\ViewModel\Comment</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

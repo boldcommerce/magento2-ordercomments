@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * routes.xml
+ *
+ * @copyright Copyright © 2020 Bold Commerce BV. All rights reserved.
+ * @author    dev@boldcommerce.nl
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="bold_ordercomment" frontName="bold_ordercomment">
+            <module name="Bold_OrderComment" />
+        </route>
+    </router>
+</config>
