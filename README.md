@@ -4,6 +4,8 @@
 This extension allows customers to place a comment during the checkout.
 The comment field is displayed in the billing step right above the place order button.
 
+Additionally, there is also the option of showing the comment field on the cart page.
+
 Store owners can then see these comments in the backend on the order grid and on the order view page.
 
 ### Checkout view
@@ -31,6 +33,22 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.8.2
+=============
+* Third party contribution: Bengali translations [#65](https://github.com/boldcommerce/magento2-ordercomments/pull/65)
+
+1.8.1
+=============
+* fix bug introduced with 1.8.0 in checkout `Cannot read property 'length' of null`
+
+1.8.0
+=============
+* new feature: ability to show the comment field on the cart page based on a admin configuration setting.
+
+1.7.1
+=============
+* upgrade tests to phpunit 6
+
 1.7.0
 =============
 * Added website scope configuration setting to toggle visibility of comment field. [#59](https://github.com/boldcommerce/magento2-ordercomments/pull/59)

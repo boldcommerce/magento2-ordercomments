@@ -1,0 +1,44 @@
+<?php
+    /** @var \Bold\OrderComment\ViewModel\Comment $viewModel */
+    $viewModel = $block->getData('comment_view_model');
+    $oldComment = $viewModel ? $viewModel->getComment() : '';
+    $hasComment = !!$oldComment;
+    $extraValidationClasses = $viewModel ? $viewModel->getExtraClass() : '';
+?>
+
+<div class="cart-order-comment">
+    <div class="block order-comment"
+         id="block-order-comment"
+         data-mage-init='{"collapsible":{"active": <?= $hasComment ? 'true' : 'false' ?>, "openedState": "active", "saveState": false}}'>
+        <div class="title" data-role="title">
+            <strong id="block-order-comment-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__('Edit Order Comment')) ?></strong>
+        </div>
+        <div class="content" data-role="content" aria-labelledby="block-order-comment-heading">
+            <form id="order-comment-form"
+                  action="<?= $block->escapeUrl($block->getUrl('bold_ordercomment/cart/updateComment')) ?>"
+                  data-mage-init='{"validation": {}}'
+                  method="post">
+                <div class="fieldset order-comment<?= $hasComment ? ' applied' : '' ?>">
+                    <input type="hidden" name="remove" id="remove-comment" value="0" />
+                    <div class="field">
+                        <label for="order_comment" class="label"><span><?= $block->escapeHtml(__('Do you have any comments regarding the order?')) ?></span></label>
+                        <div class="control">
+                            <textarea class="input-text order-comment order-comment-input<?= $extraValidationClasses ? ' ' . $extraValidationClasses : ''?>"
+                                      name="order_comment"
+                                      rows="4"
+                                      placeholder="<?= $block->escapeHtml(__('Enter your comment...')) ?>"
+                            ><?= $oldComment ?></textarea>
+                        </div>
+                    </div>
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button class="action apply-comment primary" type="submit" value="<?= $block->escapeHtmlAttr(__('Save Comment')) ?>">
+                                <span><?= $block->escapeHtml(__('Save Comment')) ?></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

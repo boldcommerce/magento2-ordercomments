@@ -7,7 +7,12 @@
                 <field id="show_in_checkout" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Show in checkout</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment>Show in checkout will show or hide the order comments section in checkout</comment>
+                    <comment>Toggle visibility of the order comments section in the checkout</comment>
+                </field>
+                <field id ="show_in_cart" sortOrder="15" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show in cart</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Toggle visibility of order comments on the cart page</comment>
                 </field>
                 <field id="max_length" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
                     <label>Maximum length in characters</label>

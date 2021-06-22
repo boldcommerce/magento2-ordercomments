@@ -1,10 +1,11 @@
 <?php
 namespace Bold\OrderComment\Plugin\Model\Order;
 
-use \Magento\Sales\Api\OrderRepositoryInterface;
-use \Magento\Sales\Api\Data\OrderInterface;
-use \Magento\Sales\Model\OrderFactory;
-use \Magento\Sales\Api\Data\OrderExtensionFactory;
+use Magento\Sales\Api\OrderRepositoryInterface;
+use Magento\Sales\Api\Data\OrderInterface;
+use Magento\Sales\Model\OrderFactory;
+use Magento\Sales\Api\Data\OrderExtensionFactory;
+
 class LoadOrderComment
 {
     private $orderFactory;
