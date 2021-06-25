@@ -8,7 +8,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class ModifyLayout
 {
-    private Config $config;
+    private $config;
 
     public function __construct(
         Config $config
