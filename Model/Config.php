@@ -24,6 +24,8 @@ class Config
 
     const XML_PATH_CONFIG_SHOW_IN_CART = 'sales/ordercomments/show_in_cart';
 
+    const XML_PATH_CONFIG_MOVE_COMMENT_AFTER_PAYMENT_METHOD = 'sales/ordercomments/move_comment_after_payment_methods';
+
     /**
      * @var ScopeConfigInterface
      */
@@ -77,5 +79,14 @@ class Config
     public function getInitialCollapseState($website = null)
     {
         return $this->scopeConfig->getValue(self::XML_PATH_CONFIG_FIELD_COLLAPSE_STATE, ScopeInterface::SCOPE_WEBSITE, $website);
+    }
+
+    /**
+     * @param mixed $website
+     * @return bool
+     */
+    public function isMoveCommentAfterPaymentMethods($website = null): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_CONFIG_MOVE_COMMENT_AFTER_PAYMENT_METHOD, ScopeInterface::SCOPE_WEBSITE, $website);
     }
 }

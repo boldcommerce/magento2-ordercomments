@@ -2,21 +2,18 @@
 
 namespace Bold\OrderComment\Plugin\Block\Checkout;
 
+use Bold\OrderComment\Model\Config;
 use Magento\Checkout\Block\Checkout\LayoutProcessor;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
-class ModifyLayout {
+class ModifyLayout
+{
+    private Config $config;
 
-    const CONFIG_MOVE_COMMENT_AFTER_PAYMENT_METHOD = 'sales/ordercomments/move_comment_after_payment_methods';
-
-    /**
-     * ModifyLayout constructor.
-     * @param ScopeConfigInterface $scopeConfig
-     */
     public function __construct(
-        ScopeConfigInterface $scopeConfig
+        Config $config
     ) {
-        $this->scopeConfig = $scopeConfig;
+        $this->config = $config;
     }
 
     /**
@@ -29,7 +26,7 @@ class ModifyLayout {
     {
         $jsLayout = $proceed(...$args);
 
-        if ($this->scopeConfig->getValue(self::CONFIG_MOVE_COMMENT_AFTER_PAYMENT_METHOD)) {
+        if ($this->config->isMoveCommentAfterPaymentMethods()) {
             $this->moveOrderCommentComponentAfterPaymentMethods($jsLayout);
         }
 
