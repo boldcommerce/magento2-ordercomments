@@ -1,0 +1,41 @@
+<?php
+namespace Bold\OrderComment\Plugin;
+use Magento\Sales\Api\Data\OrderExtensionFactory;
+use Magento\Sales\Api\Data\OrderInterface;
+use Magento\Sales\Api\Data\OrderSearchResultInterface;
+use Magento\Sales\Api\OrderRepositoryInterface;
+
+class CustomBoldCommentPlugin
+{
+
+    const FIELD_NAME = 'bold_order_comment';
+    protected $extensionFactory;
+
+    public function __construct(OrderExtensionFactory $extensionFactory)
+    {
+        $this->extensionFactory = $extensionFactory;
+    }
+
+    public function afterGet(OrderRepositoryInterface $subject, OrderInterface $order)
+    {
+        $customBoldComments = $order->getData(self::FIELD_NAME);
+        $extensionAttributes = $order->getExtensionAttributes();
+        $extensionAttributes = $extensionAttributes ? $extensionAttributes : $this->extensionFactory->create();
+        $extensionAttributes->setBoldOrderComment($customBoldComments);
+        $order->setExtensionAttributes($extensionAttributes);
+        return $order;
+    }
+
+    public function afterGetList(OrderRepositoryInterface $subject, OrderSearchResultInterface $searchResult)
+    {
+        $orders = $searchResult->getItems();
+        foreach ($orders as &$order) {
+            $customBoldComments = $order->getData(self::FIELD_NAME);
+            $extensionAttributes = $order->getExtensionAttributes();
+            $extensionAttributes = $extensionAttributes ? $extensionAttributes : $this->extensionFactory->create();
+            $extensionAttributes->setBoldOrderComment($customBoldComments);
+            $order->setExtensionAttributes($extensionAttributes);
+        }
+        return $searchResult;
+    }
+}

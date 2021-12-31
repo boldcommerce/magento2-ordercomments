@@ -15,4 +15,9 @@
     <type name="Magento\Sales\Api\OrderRepositoryInterface">
         <plugin name="bold_load_ordercomment" type="Bold\OrderComment\Plugin\Model\Order\LoadOrderComment"/>
     </type>
+    
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="bold_order_comment_add_order_extension_attribute"
+                type="Bold\OrderComment\Plugin\CustomBoldCommentPlugin" />
+    </type>
 </config>
