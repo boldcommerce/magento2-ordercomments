@@ -2,7 +2,7 @@
   "name": "boldcommerce/magento2-ordercomments",
   "description": "Magento 2 Module to add  a comment field above the place order button in the checkout",
   "require": {
-    "php": "~7.0.0|~7.1.0|~7.2.0|~7.3.0|~7.4.0"
+    "php": "~7.0.0|~7.1.0|~7.2.0|~7.3.0|~7.4.0|~8.1.0"
   },
   "type": "magento2-module",
   "keywords": ["magento2"],
