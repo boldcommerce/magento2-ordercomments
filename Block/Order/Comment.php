@@ -34,7 +34,7 @@ class Comment extends \Magento\Framework\View\Element\Template
 
     public function getOrderComment(): string
     {
-        return trim($this->getOrder()->getData(OrderComment::COMMENT_FIELD_NAME));
+        return trim((string) $this->getOrder()->getData(OrderComment::COMMENT_FIELD_NAME));
     }
 
     public function hasOrderComment() : bool

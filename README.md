@@ -33,6 +33,17 @@ php bin/magento setup:upgrade
 ```
 
 ## Changelog
+1.8.5
+=============
+* Third party contribution: PHP 8.1 bugfix `Deprecated Functionality: trim(): Passing null to parameter` when viewing
+an order in the my orders section that doesn't have an order comment [#72](https://github.com/boldcommerce/magento2-ordercomments/pull/72)
+
+1.8.4
+=============
+* Third party contribution: PHP 8.1 support [#71](https://github.com/boldcommerce/magento2-ordercomments/pull/71)
+* Third party contribution: Spanish translations [#70](https://github.com/boldcommerce/magento2-ordercomments/pull/70)
+* Third party contribution: Thai translations [#67](https://github.com/boldcommerce/magento2-ordercomments/pull/67)
+
 1.8.2
 =============
 * Third party contribution: Bengali translations [#65](https://github.com/boldcommerce/magento2-ordercomments/pull/65)
