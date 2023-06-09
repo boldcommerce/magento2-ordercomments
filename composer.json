@@ -1,5 +1,5 @@
 {
-  "name": "digitalni-plan/magento2-ordercomments",
+  "name": "boldcommerce/magento2-ordercomments",
   "description": "Magento 2 Module to add  a comment field above the place order button in the checkout",
   "require": {
     "php": "^7.0.0|^8.0.0"
